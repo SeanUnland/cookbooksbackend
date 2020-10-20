@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require(`../db/connection`);
-
-// Require the Cookbook controller.
-const Cookbook = require(`../models/Cookbook`);
+//import db connection
+const mongoose = require("../db/connection");
+//create db connection
+const db = mongoose.connection;
+//import Cookbook model
+const Cookbook = require("../models/Cookbook");
+//import seed data
+const seedData = require("../db/seed");
 
 // Write the route to list all cookbooks
 router.get(`/`, async (req, res) => {
