@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const logger = require("morgan");
+require("dotenv").config();
+const { PORT = 3000, NODE_ENV = "development" } = process.env;
 
 // Add the middleware code needed to accept incoming data and add it to req.body
 
@@ -21,4 +23,8 @@ app.use("/api/cookbooks/", cookbookRouter);
 const authorRouter = require("./controllers/authorRoutes");
 app.use("/api/authors/", authorRouter);
 
-app.listen(4000, () => console.log("Server running on port 4000!"));
+app.listen(PORT, () => {
+  console.log(`Your are listening on port ${PORT}`);
+});
+
+// app.listen(4000, () => console.log(`Server running on port 4000`));
