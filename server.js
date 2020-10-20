@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 const cookbookRouter = require("./controllers/cookbookRoutes");
-app.use("/api/cookbooks/", cookbookRouter);
+app.use("/api/cookbooks", cookbookRouter);
 
 const authorRouter = require("./controllers/authorRoutes");
 app.use("/api/authors/", authorRouter);
